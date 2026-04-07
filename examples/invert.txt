@@ -1,0 +1,5 @@
+:B,0 -> :B,:GoingRight,0
+:B,1 -> :B,:GoingRight,1
+:GoingRight,0 -> :GoingRight,1
+:GoingRight,1 -> :GoingRight,1
+:GoingRight,:E -> :E
