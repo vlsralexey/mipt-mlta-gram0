@@ -22,7 +22,7 @@ std::regex rule_regex(
 size_t left_part_group_index = 1;
 size_t right_part_group_index = 4;
 
-std::regex stop_regex(R"((:B)?[^:]*(:E)?)");
+std::regex stop_regex(R"((,:B)?[^:]*(:E,)?)");
 
 std::string state;
 std::vector<Rule> rules;
@@ -62,7 +62,8 @@ void ParseRules() {
         if (!std::regex_match(line, matches, rule_regex)) {
             ExitWithError("Syntax error on line number " + std::to_string(line_num));
         }
-        rules.emplace_back(matches[left_part_group_index], matches[right_part_group_index]);
+        rules.emplace_back(',' + std::string(matches[left_part_group_index]) + ',',
+                           ',' + std::string(matches[right_part_group_index]) + ',');
     }
 }
 
@@ -72,6 +73,7 @@ void GetInput() {
         ExitWithError("Cannot open input file");
     }
     std::getline(input_file, state);
+    state = ',' + state + ',';
 }
 
 bool TryToApplyRule(const Rule& rule) {
