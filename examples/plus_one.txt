@@ -1,5 +1,10 @@
-0,:E -> 0,:GoingLeft,:E
-1,:E -> 1,:GoingLeft,:E
-0,:GoingLeft -> 1
+0,:E -> 0,:GoingLeft,:E'
+1,:E -> 1,:GoingLeft,:E'
+
+0,:GoingLeft -> 1,:GoingRight
 1,:GoingLeft -> :GoingLeft,0
-:E,:GoingLeft -> :E,1
+:B,:GoingLeft -> :B,1,:GoingRight
+
+:GoingRight,0 -> 0,:GoingRight
+:GoingRight,1 -> 1,:GoingRight
+:GoingRight,:E' -> :E
