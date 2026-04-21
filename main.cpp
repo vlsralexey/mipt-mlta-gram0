@@ -5,7 +5,7 @@
 #include <vector>
 
 #define DEBUG true
-#define MAX_STEPS 100
+#define MAX_STEPS 10000
 
 struct Rule {
     std::string a;
