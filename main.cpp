@@ -18,9 +18,7 @@ const char* output_file_name;
 const char* trace_file_name = "";
 
 std::regex rule_regex(
-    R"(((:?[0-9a-zA-Z_.']+)(,:?[0-9a-zA-Z_.']+)*)\s*->\s*((:?[0-9a-zA-Z_.']+)(,:?[0-9a-zA-Z_.']+)*))");
-size_t left_part_group_index = 1;
-size_t right_part_group_index = 4;
+    R"(((?::?[0-9a-zA-Z_.']+)(?:,:?[0-9a-zA-Z_.']+)*)\s*->\s*((?::?[0-9a-zA-Z_.']+)(?:,:?[0-9a-zA-Z_.']+)*))");
 
 std::regex stop_regex(R"((,:B)?[^:]*(:E,)?)");
 
@@ -62,8 +60,8 @@ void ParseRules() {
         if (!std::regex_match(line, matches, rule_regex)) {
             ExitWithError("Syntax error on line number " + std::to_string(line_num));
         }
-        rules.emplace_back(',' + std::string(matches[left_part_group_index]) + ',',
-                           ',' + std::string(matches[right_part_group_index]) + ',');
+        rules.emplace_back(',' + std::string(matches[1]) + ',',
+                           ',' + std::string(matches[2]) + ',');
     }
 }
 
