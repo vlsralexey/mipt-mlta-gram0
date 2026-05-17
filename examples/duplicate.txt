@@ -38,4 +38,4 @@
 0'',:EndRewritingLeft -> :EndRewritingLeft,0
 1'',:EndRewritingLeft -> :EndRewritingLeft,1
 
-:B',:EndRewritingLeft -> :B'
+:B',:EndRewritingLeft -> :B
