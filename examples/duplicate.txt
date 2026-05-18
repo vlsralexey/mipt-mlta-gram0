@@ -32,7 +32,7 @@
 
 0'',:GoingLeft,0 -> 0'',:EndRewritingLeft,0
 0'',:GoingLeft,1 -> 0'',:EndRewritingLeft,1
-0'',:GoingLeft,0 -> 0'',:EndRewritingLeft,0
+1'',:GoingLeft,0 -> 1'',:EndRewritingLeft,0
 1'',:GoingLeft,1 -> 1'',:EndRewritingLeft,1
 
 0'',:EndRewritingLeft -> :EndRewritingLeft,0
